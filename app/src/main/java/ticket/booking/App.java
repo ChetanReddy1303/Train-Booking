@@ -9,6 +9,7 @@ import ticket.booking.services.UserBookingService;
 import ticket.booking.util.UserServiceUtil;
 
 import java.io.IOException;
+import java.sql.SQLOutput;
 import java.sql.Time;
 import java.util.*;
 
@@ -25,7 +26,7 @@ public class App {
         try{
             userBookingService = new UserBookingService();
         }catch(IOException ex){
-            System.out.println("Something went wrong");
+            ex.printStackTrace();
             return;
         }
         while(option != 7){
@@ -37,7 +38,7 @@ public class App {
             System.out.println("5. Book a Seat");
             System.out.println("6. Cancel My Booking");
             System.out.println("7. Exit the Application");
-
+            option = sc.nextInt();
             switch (option){
                 case 1 :
                     System.out.println("Enter the Username to SignUp");
@@ -71,8 +72,8 @@ public class App {
                     System.out.println("Type your source Station");
                     String source = sc.next();
                     System.out.println("Type your Destination Station");
-                    String dest = sc.next();
-                    List<Train> trains = userBookingService.getTrains(source, dest);
+                    String destination = sc.next();
+                    List<Train> trains = userBookingService.getTrains(source, destination);
                     int index = 1;
                     for(Train t : trains){
                         System.out.println(index + " Train id : "+ t.getTrainId());
@@ -81,6 +82,8 @@ public class App {
                         }
                     }
                     System.out.println("Select a train by typing 1,2,3...");
+                case 5:
+                    System.out.println("Enter the preference of the seat that you want(like window or something...)");
 
             }
         }
