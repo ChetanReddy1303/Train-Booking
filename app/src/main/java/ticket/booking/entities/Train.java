@@ -1,5 +1,8 @@
 package ticket.booking.entities;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import ticket.booking.util.StationsDeserializer;
+
 import java.sql.Time;
 import java.util.List;
 import java.util.Map;
@@ -8,8 +11,12 @@ public class Train {
     private String trainId;
     private String trainNo;
     private List<List<Integer>> seats;
-    private Map<String, Time> stationTimes;
+
+    @JsonDeserialize(using = StationsDeserializer.class)
     private List<String> stations;
+    private Map<String, Time> stationTimes;
+
+    public Train() {}
 
     public String getTrainId() {
         return trainId;

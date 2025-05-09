@@ -17,13 +17,20 @@
             [0,0,0,0,0,0],
             [0,0,0,0,0,0]
           ],
-          "stations": {
+          "station_times": {
             "Bangalore": "13:50:00",
             "Jaipur": "13:50:00",
             "Delhi": "13:50:00"
-          }
+          },
+          "stations": ["Bangalore", "Jaipur", "Delhi"]
         }
       }
     ]
+  },
+  {
+    "user_id": "xyz123",
+    "name": "Another User",
+    "hashed_password": "password123",
+    "tickets_booked": []
   }
 ]
